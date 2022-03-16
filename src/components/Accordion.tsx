@@ -1,32 +1,18 @@
-import axios from 'axios';
 import React, { MouseEvent, useEffect, useState } from 'react';
 import { ReactComponent as GroupIcon } from 'assets/GroupIcon.svg';
 import { ReactComponent as ArrowIcon } from 'assets/ArrowIcon.svg';
 import './Accordion.css';
-
-type TaskData = {
-  description: string;
-  value: number;
-  checked: boolean;
-};
-
-interface IGroupData {
-  name: string;
-  tasks: TaskData[];
-}
+import { IGroupData } from 'interfaces/groups';
+import { fetchGroups } from 'services/groups.service';
 
 export function Accordion() {
   const [group, setGroup] = useState<IGroupData[]>([]);
   const [isOpened, setOpened] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(
-        'https://gist.githubusercontent.com/huvber/ba0d534f68e34f1be86d7fe7eff92c96/raw/508f46dbf6535f830aa92cf97359853c5700bab1/mock-progress'
-      )
-      .then((response) => {
-        setGroup(response.data);
-      });
+    fetchGroups().then((users) => {
+      setGroup(users);
+    });
   }, []);
 
   const updateTitle = (accordion: HTMLElement): void => {
