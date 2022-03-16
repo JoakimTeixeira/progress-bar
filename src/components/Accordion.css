@@ -1,0 +1,87 @@
+.accordion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: white;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  transition: 0.4s;
+  font-family: 'Source Sans Pro';
+}
+
+.accordion-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.accordion-title {
+  font-weight: 400;
+  line-height: 22px;
+  font-size: 18px;
+}
+
+.accordion-expand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expand-title {
+  font-size: 16px;
+  line-height: 20.11px;
+  font-weight: 400;
+  color: #999;
+}
+
+.expand-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.arrow-up {
+  transform: rotate(180deg);
+}
+
+ul {
+  list-style: none;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+ul:first-child,
+ul:first-child button {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+ul:last-child {
+  border-bottom: 1px solid #ddd;
+}
+
+ul:last-child,
+ul:last-child button,
+ul:last-child .panel {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel-content {
+  padding: 16px;
+  font-size: 16px;
+  line-height: 20.11px;
+}
