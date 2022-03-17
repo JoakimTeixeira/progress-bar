@@ -4,10 +4,11 @@ import { ReactComponent as ArrowIcon } from 'assets/ArrowIcon.svg';
 import './Accordion.css';
 import { IGroupData } from 'interfaces/groups';
 import { fetchGroups } from 'services/groups.service';
+import { Checkbox } from './Checkbox';
 
-export function Accordion() {
+export const Accordion = () => {
   const [group, setGroup] = useState<IGroupData[]>([]);
-  const [isOpened, setOpened] = useState(false);
+  const [isOpened, setOpened] = useState<boolean>(false);
 
   useEffect(() => {
     fetchGroups().then((users) => {
@@ -55,30 +56,36 @@ export function Accordion() {
   return (
     <div>
       {group &&
-        group.map((item) => (
-          <ul key={item.name}>
-            <li>
-              <button type="button" className="accordion" onClick={(event) => handleToggle(event)}>
-                <div className="accordion-info">
-                  <GroupIcon width="16px" height="16px" />
-                  <span className="accordion-title">{item.name}</span>
-                </div>
+        group.map((item) => {
+          const { name, tasks } = item;
 
-                <div className="accordion-expand">
-                  <span className="expand-title">Show</span>
-                  <ArrowIcon className="expand-icon" />
+          return (
+            <ul key={name}>
+              <li>
+                <button
+                  type="button"
+                  className="accordion"
+                  onClick={(event) => handleToggle(event)}
+                >
+                  <div className="accordion-info">
+                    <GroupIcon width="16px" height="16px" />
+                    <span className="accordion-title">{name}</span>
+                  </div>
+
+                  <div className="accordion-expand">
+                    <span className="expand-title">Show</span>
+                    <ArrowIcon className="expand-icon" />
+                  </div>
+                </button>
+                <div className="panel">
+                  <div className="panel-content">
+                    <Checkbox tasks={tasks} />
+                  </div>
                 </div>
-              </button>
-              <div className="panel">
-                <p className="panel-content">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </div>
-            </li>
-          </ul>
-        ))}
+              </li>
+            </ul>
+          );
+        })}
     </div>
   );
-}
+};
