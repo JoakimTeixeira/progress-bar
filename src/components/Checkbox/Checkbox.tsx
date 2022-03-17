@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { ITaskData } from 'interfaces/groups';
+import './Checkbox.css';
 
 export const Checkbox: FC<{ tasks: ITaskData[] }> = ({ tasks }) => (
   <div>
