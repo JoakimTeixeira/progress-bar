@@ -4,7 +4,7 @@ import { ReactComponent as ArrowIcon } from 'assets/ArrowIcon.svg';
 import './Accordion.css';
 import { IGroupData } from 'interfaces/groups';
 import { fetchGroups } from 'services/groups.service';
-import { Checkbox } from './Checkbox';
+import { Checkbox } from 'components/Checkbox/Checkbox';
 
 export const Accordion = () => {
   const [group, setGroup] = useState<IGroupData[]>([]);
