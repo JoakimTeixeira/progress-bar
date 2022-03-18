@@ -3,7 +3,7 @@ import { ReactComponent as GroupIcon } from 'assets/GroupIcon.svg';
 import { ReactComponent as ArrowIcon } from 'assets/ArrowIcon.svg';
 import { IGroupData } from 'interfaces/groups';
 import { fetchUsersGroups } from 'services/groups.service';
-import { Checkbox } from 'components/Checkbox/Checkbox';
+import { CheckboxList } from 'components/CheckboxList';
 import { IPanelData } from 'interfaces/panel';
 import { getArrayWithId } from 'utils/formatData';
 import './Accordion.css';
@@ -111,7 +111,7 @@ export const Accordion = () => {
                   </div>
                 </button>
                 <div className="panel">
-                  <div className="panel-content">{tasks && <Checkbox tasks={tasks} />}</div>
+                  <div className="panel-content">{tasks && <CheckboxList tasks={tasks} />}</div>
                 </div>
               </li>
             </ul>

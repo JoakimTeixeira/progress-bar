@@ -1,9 +1,9 @@
 import React, { FC, useRef } from 'react';
 import { ITaskData } from 'interfaces/groups';
 import { getArrayWithId } from 'utils/formatData';
-import './Checkbox.css';
+import './CheckboxList.css';
 
-export const Checkbox: FC<{ tasks: ITaskData[] }> = ({ tasks }) => {
+export const CheckboxList: FC<{ tasks: ITaskData[] }> = ({ tasks }) => {
   const formattedTasks = useRef<ITaskData[]>();
 
   formattedTasks.current = getArrayWithId(tasks);
