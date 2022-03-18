@@ -1,5 +1,5 @@
-import { FC, useRef } from 'react';
 import { ITaskData } from 'interfaces/groups';
+import { FC, useRef } from 'react';
 import { getArrayWithId } from 'utils/formatData';
 import './CheckboxList.css';
 
