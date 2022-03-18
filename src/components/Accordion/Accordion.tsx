@@ -1,14 +1,16 @@
-import React, { MouseEvent, useEffect, useState } from 'react';
+import React, { MouseEvent, useEffect, useRef, useState } from 'react';
 import { ReactComponent as GroupIcon } from 'assets/GroupIcon.svg';
 import { ReactComponent as ArrowIcon } from 'assets/ArrowIcon.svg';
 import './Accordion.css';
 import { IGroupData } from 'interfaces/groups';
 import { fetchGroups } from 'services/groups.service';
 import { Checkbox } from 'components/Checkbox/Checkbox';
+import { IPanelData } from 'interfaces/panel';
 
 export const Accordion = () => {
   const [group, setGroup] = useState<IGroupData[]>([]);
   const [isOpened, setOpened] = useState<boolean>(false);
+  const panelElement = useRef<HTMLElement>();
 
   useEffect(() => {
     fetchGroups().then((users) => {
@@ -16,41 +18,70 @@ export const Accordion = () => {
     });
   }, []);
 
-  const updateTitle = (accordion: HTMLElement): void => {
-    const accordionTitle = accordion.querySelector('.expand-title');
+  const getPanelProperties = (accordion: HTMLElement): IPanelData => {
+    panelElement.current = accordion.nextElementSibling as HTMLElement;
 
-    if (accordionTitle?.textContent === 'Hide') {
-      accordionTitle.textContent = 'Show';
-    } else if (accordionTitle?.textContent === 'Show') {
-      accordionTitle.textContent = 'Hide';
-    }
+    return {
+      element: panelElement.current,
+      scrollHeight: panelElement.current.scrollHeight,
+      scrollWidth: panelElement.current.scrollWidth,
+    };
   };
 
-  const updateArrow = (accordion: HTMLElement): void => {
-    const accordionArrow = accordion.querySelector('.expand-icon');
-    accordionArrow?.classList.toggle('arrow-up');
+  // Fixes accordion height when scroll shows in the page and causes width changes
+  const handleAccordionHeightWithScroll = (accordion: HTMLElement): void => {
+    const accordionWidth = accordion.scrollWidth;
+
+    setTimeout(() => {
+      const { element, scrollHeight, scrollWidth } = getPanelProperties(accordion);
+      const isDifferentWidth = accordionWidth !== scrollWidth;
+
+      if (isDifferentWidth) {
+        element.style.maxHeight = `${scrollHeight}px`;
+      }
+    }, 200);
   };
 
-  const updatePanelHeight = (accordion: HTMLElement): void => {
+  const toggleActive = (accordion: HTMLElement): void => {
     if (accordion) {
       accordion.classList.toggle('active');
       setOpened(!isOpened);
     }
+  };
 
-    const panel = accordion.nextElementSibling as HTMLElement;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = '';
+  const toggleTitle = (accordion: HTMLElement): void => {
+    const title = accordion.querySelector('.expand-title');
+
+    if (title?.textContent === 'Hide') {
+      title.textContent = 'Show';
+    } else if (title?.textContent === 'Show') {
+      title.textContent = 'Hide';
+    }
+  };
+
+  const toggleIcon = (accordion: HTMLElement): void => {
+    const icon = accordion.querySelector('.expand-icon');
+    icon?.classList.toggle('arrow-up');
+  };
+
+  const togglePanelHeight = (accordion: HTMLElement): void => {
+    const { element, scrollHeight } = getPanelProperties(accordion);
+
+    if (element.style.maxHeight) {
+      element.style.maxHeight = '';
     } else {
-      panel.style.maxHeight = `${panel.scrollHeight}px`;
+      element.style.maxHeight = `${scrollHeight}px`;
+      handleAccordionHeightWithScroll(accordion);
     }
   };
 
   const handleToggle = (event: MouseEvent<HTMLElement>): void => {
     const accordion = event.currentTarget;
 
-    updateTitle(accordion);
-    updateArrow(accordion);
-    updatePanelHeight(accordion);
+    toggleActive(accordion);
+    toggleTitle(accordion);
+    toggleIcon(accordion);
+    togglePanelHeight(accordion);
   };
 
   return (

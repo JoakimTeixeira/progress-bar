@@ -73,7 +73,6 @@ ul:last-child .panel {
 }
 
 .panel {
-  padding: 0 18px;
   background-color: white;
   max-height: 0;
   overflow: hidden;
@@ -81,7 +80,7 @@ ul:last-child .panel {
 }
 
 .panel-content {
-  padding: 16px;
+  margin: 20px 20px 20px 40px;
   font-size: 16px;
   line-height: 20.11px;
 }
