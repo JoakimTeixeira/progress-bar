@@ -7,6 +7,7 @@ Progress bar for multiple groups
 ## To-do
 
 - [ ] Implement styled components to modularize CSS
+- [ ] Implement lazy loading for checkbox list
 
 ## Running the Project
 
