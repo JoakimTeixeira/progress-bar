@@ -12,17 +12,14 @@ export const CheckboxList: FC<{ tasks: ITaskData[] }> = ({ tasks }) => {
     <>
       {formattedTasks.current.map((task) => (
         <div key={task.id} className="checkbox-item">
-          <div className="checkbox-wrapper">
-            <input
-              className="checkbox-input"
-              type="checkbox"
-              name=""
-              id={task.description}
-              defaultChecked={task.checked}
-            />
-            <span className="checkbox-checkmark" />
-          </div>
-          {task.description ?? task.name}
+          <input
+            className="checkbox-input"
+            type="checkbox"
+            name=""
+            id={task.description}
+            defaultChecked={task.checked}
+          />
+          <div>{task.description ?? task.name}</div>
         </div>
       ))}
     </>
