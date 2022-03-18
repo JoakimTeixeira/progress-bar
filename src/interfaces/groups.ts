@@ -6,6 +6,7 @@ export interface ITaskData {
 }
 
 export interface IGroupData {
+  id: string;
   name: string;
   tasks: ITaskData[];
 }

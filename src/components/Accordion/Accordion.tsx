@@ -6,15 +6,23 @@ import { IGroupData } from 'interfaces/groups';
 import { fetchUsersGroups } from 'services/groups.service';
 import { Checkbox } from 'components/Checkbox/Checkbox';
 import { IPanelData } from 'interfaces/panel';
+import { nanoid } from 'nanoid';
 
 export const Accordion = () => {
   const [usersGroups, setUsersGroups] = useState<IGroupData[]>([]);
   const [isOpened, setOpened] = useState<boolean>(false);
   const panelElement = useRef<HTMLElement>();
 
+  const getGroupsWithId = (groups: IGroupData[]): IGroupData[] =>
+    groups.map((group) => ({
+      ...group,
+      id: nanoid(),
+    }));
+
   useEffect(() => {
-    fetchUsersGroups().then((response) => {
-      setUsersGroups(response);
+    fetchUsersGroups().then((groups) => {
+      const formattedGroups = getGroupsWithId(groups);
+      setUsersGroups(formattedGroups);
     });
   }, []);
 
@@ -88,10 +96,10 @@ export const Accordion = () => {
     <div>
       {usersGroups &&
         usersGroups.map((group) => {
-          const { name, tasks } = group;
+          const { id, name, tasks } = group;
 
           return (
-            <ul key={name}>
+            <ul key={id}>
               <li>
                 <button
                   type="button"
