@@ -1,0 +1,15 @@
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 30px;
+  background-color: #00b797;
+  border-radius: 20px;
+}
+
+.progress-bar-text {
+  color: #f2fbfa;
+  font-weight: 600;
+  margin: 0 10px;
+}
