@@ -1,27 +1,21 @@
 import React, { MouseEvent, useEffect, useRef, useState } from 'react';
 import { ReactComponent as GroupIcon } from 'assets/GroupIcon.svg';
 import { ReactComponent as ArrowIcon } from 'assets/ArrowIcon.svg';
-import './Accordion.css';
 import { IGroupData } from 'interfaces/groups';
 import { fetchUsersGroups } from 'services/groups.service';
 import { Checkbox } from 'components/Checkbox/Checkbox';
 import { IPanelData } from 'interfaces/panel';
-import { nanoid } from 'nanoid';
+import { getArrayWithId } from 'utils/formatData';
+import './Accordion.css';
 
 export const Accordion = () => {
   const [usersGroups, setUsersGroups] = useState<IGroupData[]>([]);
   const [isOpened, setOpened] = useState<boolean>(false);
   const panelElement = useRef<HTMLElement>();
 
-  const getGroupsWithId = (groups: IGroupData[]): IGroupData[] =>
-    groups.map((group) => ({
-      ...group,
-      id: nanoid(),
-    }));
-
   useEffect(() => {
     fetchUsersGroups().then((groups) => {
-      const formattedGroups = getGroupsWithId(groups);
+      const formattedGroups = getArrayWithId(groups);
       setUsersGroups(formattedGroups);
     });
   }, []);
@@ -117,9 +111,7 @@ export const Accordion = () => {
                   </div>
                 </button>
                 <div className="panel">
-                  <div className="panel-content">
-                    <Checkbox tasks={tasks} />
-                  </div>
+                  <div className="panel-content">{tasks && <Checkbox tasks={tasks} />}</div>
                 </div>
               </li>
             </ul>
