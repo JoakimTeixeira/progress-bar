@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { ITaskData } from 'interfaces/groups';
 import { getArrayWithId } from 'utils/formatData';
 import './CheckboxList.css';

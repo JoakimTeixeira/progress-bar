@@ -1,4 +1,4 @@
-import React, { MouseEvent, useEffect, useRef, useState } from 'react';
+import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { ReactComponent as GroupIcon } from 'assets/GroupIcon.svg';
 import { ReactComponent as ArrowIcon } from 'assets/ArrowIcon.svg';
 import { IGroupData } from 'interfaces/groups';
