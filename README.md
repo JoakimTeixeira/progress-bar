@@ -8,7 +8,7 @@ Progress bar for multiple groups
 
 ## To-do
 
-- [ ] Implement global state for shared properties
+- [x] Implement global state for shared properties
 - [ ] Implement styled components to modularize CSS
 - [ ] Implement lazy loading for checkbox list
 - [ ] Implement local storage for persistent configurations
