@@ -10,7 +10,7 @@ import {
   useState,
 } from 'react';
 import { fetchUsersGroups } from 'services/groups.service';
-import { getArrayWithId } from 'utils/formatData';
+import { getGroupsWithId } from 'utils/formatData';
 
 interface IContextData {
   usersGroups: IGroupData[];
@@ -27,7 +27,7 @@ export const GroupsContextProvider: FC<{ children: ReactNode }> = ({ children })
 
   useEffect(() => {
     fetchUsersGroups().then((groups) => {
-      const formattedGroups = getArrayWithId(groups);
+      const formattedGroups = getGroupsWithId(groups);
       setUsersGroups(formattedGroups);
     });
   }, []);
