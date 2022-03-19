@@ -3,22 +3,13 @@ import { ReactComponent as GroupIcon } from 'assets/GroupIcon.svg';
 import { CheckboxList } from 'components/CheckboxList';
 import { GroupsContext } from 'contexts/GroupsContext';
 import { IPanelData } from 'interfaces/panel';
-import { MouseEvent, useContext, useEffect, useRef } from 'react';
-import { fetchUsersGroups } from 'services/groups.service';
-import { getArrayWithId } from 'utils/formatData';
+import { MouseEvent, useContext, useRef } from 'react';
 import './Accordion.css';
 
 export const Accordion = () => {
-  const { usersGroups, setUsersGroups } = useContext(GroupsContext);
+  const { usersGroups } = useContext(GroupsContext);
   const isOpened = useRef<boolean>(false);
   const panelElement = useRef<HTMLElement>();
-
-  useEffect(() => {
-    fetchUsersGroups().then((groups) => {
-      const formattedGroups = getArrayWithId(groups);
-      setUsersGroups(formattedGroups);
-    });
-  }, []);
 
   const getPanelProperties = (accordion: HTMLElement): IPanelData => {
     panelElement.current = accordion.nextElementSibling as HTMLElement;
