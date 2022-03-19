@@ -1,15 +1,15 @@
 import { ReactComponent as ArrowIcon } from 'assets/ArrowIcon.svg';
 import { ReactComponent as GroupIcon } from 'assets/GroupIcon.svg';
 import { CheckboxList } from 'components/CheckboxList';
-import { IGroupData } from 'interfaces/groups';
+import { GroupsContext } from 'contexts/GroupsContext';
 import { IPanelData } from 'interfaces/panel';
-import { MouseEvent, useEffect, useRef, useState } from 'react';
+import { MouseEvent, useContext, useEffect, useRef } from 'react';
 import { fetchUsersGroups } from 'services/groups.service';
 import { getArrayWithId } from 'utils/formatData';
 import './Accordion.css';
 
 export const Accordion = () => {
-  const [usersGroups, setUsersGroups] = useState<IGroupData[]>([]);
+  const { usersGroups, setUsersGroups } = useContext(GroupsContext);
   const isOpened = useRef<boolean>(false);
   const panelElement = useRef<HTMLElement>();
 
