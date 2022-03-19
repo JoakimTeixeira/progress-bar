@@ -10,7 +10,7 @@ import './Accordion.css';
 
 export const Accordion = () => {
   const [usersGroups, setUsersGroups] = useState<IGroupData[]>([]);
-  const [isOpened, setOpened] = useState<boolean>(false);
+  const isOpened = useRef<boolean>(false);
   const panelElement = useRef<HTMLElement>();
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export const Accordion = () => {
   const toggleActive = (accordion: HTMLElement): void => {
     if (accordion) {
       accordion.classList.toggle('active');
-      setOpened(!isOpened);
+      isOpened.current = !isOpened.current;
     }
   };
 
