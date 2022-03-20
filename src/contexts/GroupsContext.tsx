@@ -9,7 +9,7 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { fetchUsersGroups } from 'services/groups.service';
+import { fetchUsersGroups } from 'services/groupsService';
 import { getGroupsWithId } from 'utils/formatData';
 
 interface ICheckboxProps {
