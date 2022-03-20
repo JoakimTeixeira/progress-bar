@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/progress-bar/static/css/main.6103f01f.css",
+    "main.js": "/progress-bar/static/js/main.6e5b9e16.js",
+    "static/media/GroupIcon.svg": "/progress-bar/static/media/GroupIcon.0ff44c566e5d0083fdb823c413f9dcda.svg",
+    "index.html": "/progress-bar/index.html",
+    "static/media/ArrowIcon.svg": "/progress-bar/static/media/ArrowIcon.c0f16e68aede81d7063f4ad5b2946e24.svg",
+    "main.6103f01f.css.map": "/progress-bar/static/css/main.6103f01f.css.map",
+    "main.6e5b9e16.js.map": "/progress-bar/static/js/main.6e5b9e16.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6103f01f.css",
+    "static/js/main.6e5b9e16.js"
+  ]
+}
