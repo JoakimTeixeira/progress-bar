@@ -1,15 +1,22 @@
 .progress-bar-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  height: 30px;
-  background-color: #00b797;
-  border-radius: 20px;
+  height: 24px;
+  max-height: 24px;
+  background-color: #f2fbfa;
+  margin: 0 10px;
 }
 
 .progress-bar-text {
   color: #f2fbfa;
   font-weight: 600;
-  margin: 0 10px;
+  background-color: #00b797;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+  min-width: 40px;
+}
+
+.progress-bar-container,
+.progress-bar-text {
+  border-radius: 20px;
 }

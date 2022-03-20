@@ -3,10 +3,10 @@ import { ReactComponent as GroupIcon } from 'assets/GroupIcon.svg';
 import { CheckboxList } from 'components/CheckboxList';
 import { GroupsContext } from 'contexts/GroupsContext';
 import { IPanelData } from 'interfaces/panel';
-import { MouseEvent, useContext, useRef } from 'react';
+import { MouseEvent, ReactElement, useContext, useRef } from 'react';
 import './Accordion.css';
 
-export const Accordion = () => {
+export const Accordion = (): ReactElement => {
   const { usersGroups } = useContext(GroupsContext);
   const isOpened = useRef<boolean>(false);
   const panelElement = useRef<HTMLElement>();
