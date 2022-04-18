@@ -9,6 +9,7 @@ Progress bar for multiple groups
 ## To-do
 
 - [x] Implement global state for shared properties
+- [ ] Replace explicit DOM usage with JSX logic
 - [ ] Implement styled components to modularize CSS
 - [ ] Implement lazy loading for checkbox list
 - [ ] Implement local storage for persistent configurations
