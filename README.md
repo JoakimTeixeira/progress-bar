@@ -10,10 +10,11 @@ Progress bar for multiple groups
 
 - [x] Implement global state for shared properties
 - [ ] Replace explicit DOM usage with JSX logic
-- [ ] Implement styled components to modularize CSS
+- [ ] Apply styled components to modularize CSS
 - [ ] Implement lazy loading for checkbox list
-- [ ] Implement local storage for persistent configurations
-- [ ] Implement backend for better data write performance
+- [ ] Save data temporally in local storage
+- [ ] Persist configurations in database
+- [ ] Create backend for better data write performance
 
 ## Running the Project
 
