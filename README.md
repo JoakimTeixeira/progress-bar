@@ -1,6 +1,6 @@
 # Progress Bar
 
-Progress bar for multiple groups
+Enhanced progress bar using normalized sum to handle multiple accordions
 
 [![Javascript Style Guide](https://badgen.net/badge/eslint/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 
