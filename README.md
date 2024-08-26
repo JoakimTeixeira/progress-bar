@@ -10,11 +10,11 @@ Enhanced progress bar using normalized sum to handle multiple accordions
 
 - [x] Implement global state for shared properties
 - [ ] Replace explicit DOM usage with JSX logic
-- [ ] Apply styled components to modularize CSS
-- [ ] Implement lazy loading for checkbox list
+- [ ] Apply styled-components to modularize CSS
+- [ ] Implement lazy loading for the checkbox list
 - [ ] Save data temporally in local storage
-- [ ] Persist configurations in database
-- [ ] Create backend for better data write performance
+- [ ] Persist configurations in the database
+- [ ] Create a backend for better data write performance
 
 ## Running the Project
 
