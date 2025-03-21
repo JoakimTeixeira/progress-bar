@@ -1,4 +1,4 @@
-# Progress Bar
+# Multi-Accordion Progress Normalizer
 
 Enhanced the progress bar using normalized sum to handle multiple accordions
 
