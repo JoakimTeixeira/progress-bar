@@ -1,6 +1,6 @@
 # Multi-Accordion Progress Normalizer
 
-Enhanced the progress bar using normalized sum to handle multiple accordions
+Multi-accordion progress bar using normalized sum
 
 [![Javascript Style Guide](https://badgen.net/badge/eslint/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 
