@@ -1,6 +1,6 @@
 # Progress Bar
 
-Enhanced progress bar using normalized sum to handle multiple accordions
+Enhanced the progress bar using normalized sum to handle multiple accordions
 
 [![Javascript Style Guide](https://badgen.net/badge/eslint/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 
@@ -13,8 +13,6 @@ Enhanced progress bar using normalized sum to handle multiple accordions
 - [ ] Apply styled-components to modularize CSS
 - [ ] Implement lazy loading for the checkbox list
 - [ ] Save data temporally in local storage
-- [ ] Persist configurations in the database
-- [ ] Create a backend for better data write performance
 
 ## Running the Project
 
